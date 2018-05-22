@@ -9,12 +9,31 @@ import javax.swing.JOptionPane;
  */
 public class ComissaoTecnica {
     
-    
+    public void gerenciarComissao(){
+        int subMenuComissao = Integer.parseInt(
+                JOptionPane.showInputDialog("1 - Listar\n" + 
+                                            "2 - Busca por posição\n" +
+                                            "3 - Cadastro de desempenho individual\n")        
+        );
+        switch(subMenuComissao){
+            case 1:
+                listar();
+                break;
+            case 2:
+                buscarPelaPosicao();
+                break;
+            case 3:
+                cadastrarDesempenhoIndividual(contador);
+                break;
+        }
+        
+             
+    }
     
     int contador = 0;
     public static void listar(){
         String jogador = "";
-        for(int i = 0; i < nomes.length; i++){
+        for(int i = 0; i < Atletas.nomes.length; i++){
             jogador += Atletas.nomes[i] + "\n";
         }
         JOptionPane.showMessageDialog(null, jogador);
@@ -33,9 +52,11 @@ public class ComissaoTecnica {
     
     int[] golsMarcados = new int[Atletas.nomes.length];
     
-    public void cadastrarDesempenho(int contador){
+    public void cadastrarDesempenhoIndividual(int contador){
         golsMarcados[contador] = Integer.parseInt(JOptionPane.showInputDialog("Informe o nÃºmero de gols marcados pelo jogador: " + Atletas.nomes[contador])
         );
+        
+        
         
         
         

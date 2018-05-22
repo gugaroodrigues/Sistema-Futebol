@@ -16,15 +16,15 @@ public class SistemaFutebol {
     public void apresentarMenu(){
        int menu = Integer.parseInt(JOptionPane.showInputDialog(null,
                  " 1 - Atletas\n"
-                +" 2 - Comiss√£o t√©cnica\n"
-                +" 3 - Escala√ß√£o\n "
-               +"4 - An√°lise de Desempenho\n"
+                +" 2 - Comiss√£o tÈcnica\n"
+                +" 3 - EscalaÁ„o\n "
+               +"4 - An·lise de Desempenho\n"
                 +" 5 - Sair"));
        while(menu !=5){
            switch(menu){
                case 1 :menuAtletas.gerenciarAtletas();
                    break;
-               case 2 :
+               case 2 :menuComissaoTecnica.gerenciarComissao();
                    break;
                case 3 :
                    break;

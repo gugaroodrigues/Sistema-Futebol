@@ -27,3 +27,11 @@ SistemaFutebol/manifest.mf
 SistemaFutebol/nbproject/project.properties
 SistemaFutebol/nbproject/build-impl.xml
 SistemaFutebol/nbproject/project.xml
+/nbproject/private/
+/SistemaFutebol/build/
+manifest.mf
+build.xml
+nbproject/project.xml
+nbproject/project.properties
+nbproject/genfiles.properties
+nbproject/build-impl.xml

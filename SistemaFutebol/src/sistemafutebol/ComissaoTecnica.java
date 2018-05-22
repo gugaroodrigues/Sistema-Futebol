@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
  */
 public class ComissaoTecnica {
     
-    public void listar(){
+    public static void listar(){
         String jogador = "";
         for(int i = 0; i < 30; i++){
             texto += Atletas.nomes[i] + "\n"

@@ -28,7 +28,6 @@ public class Atletas {
                
         atual++;
     }
-    
-    public void edi
+
 }
 

@@ -8,9 +8,11 @@ import javax.swing.JOptionPane;
 
 
 public class SistemaFutebol {
+    
+   
 
  
-    public void apresentarMenu{
+    public void apresentarMenu(){
        int menu = Integer.parseInt(JOptionPane.showInputDialog(null,
                  " 1 - Atletas\n"
                 +" 2 - Comissão técnica\n"

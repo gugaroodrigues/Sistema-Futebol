@@ -18,7 +18,7 @@ public class SistemaFutebol {
                  " 1 - Atletas\n"
                 +" 2 - Comissão técnica\n"
                 +" 3 - Escalação\n "
-                +" 4 - Análise de Desempenho\n"
+               +"4 - Análise de Desempenho\n"
                 +" 5 - Sair"));
        while(menu !=5){
            switch(menu){

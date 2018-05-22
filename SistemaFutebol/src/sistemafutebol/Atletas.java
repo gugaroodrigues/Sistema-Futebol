@@ -6,13 +6,14 @@ import javax.swing.JOptionPane;
 public class Atletas {
 
     static String[] nomes = new String[30];
-    int[] idades = new int[30];
-    double[] pesos = new double[30];
-    double[] alturas = new double[30];
-    static String[] posicoes = new String[30];
-    String[] situacoes = new String[30];
-    String[] contratos = new String[30];
-    String[] timeAnterior = new String[30];
+    int[] idades = new int[nomes.length];
+    double[] pesos = new double[nomes.length];
+    double[] alturas = new double[nomes.length];
+    static String[] posicoes = new String[nomes.length];
+    String[] situacoes = new String[nomes.length];
+    String[] contratos = new String[nomes.length];
+    String[] timeAnterior = new String[nomes.length];
+    int[] camisa =  new int[nomes.length];
     int atual = 0;
         
   
@@ -21,13 +22,20 @@ public class Atletas {
                  " 1 - Cadastrar Atleta\n"
                 +" 2 - Listar\n"
                 +" 3 - Editar\n "
-                +" 4 - Buscar\n"));
+                +"4 - Buscar\n"));
         switch (subMenuAtleta){
             case 1: 
                 cadastrar();
-                break;
-
-                
+                break;  
+            case 2: 
+                ComissaoTecnica.listar();
+                break;  
+            case 3:
+                ComissaoTecnica.buscarPelaPosicao();
+                break;  
+            case 4: 
+                break;  
+                        
         }
             
     }      
@@ -44,5 +52,17 @@ public class Atletas {
                
         atual++;
     }
+    
+    public void apresentarInformacao(){
+        
+        JOptionPane.showMessageDialog(null, "Nome Atleta: " + 
+                nomes[atual] + "\nIdade: " + idades[atual] + "\nPeso: " + pesos[atual]
+        + "\nAltura: " + alturas[atual] + "\nPosição do Atleta " + posicoes[atual] + 
+          "\nSituação do atleta com o club" + situacoes[atual] + " \nTipo de contrato "
+        + contratos[atual] + "\nTime anterior " + timeAnterior[atual], "SISTEMA FUTEBOL",
+        JOptionPane.INFORMATION_MESSAGE);
+         
+    }
+    
 
 }

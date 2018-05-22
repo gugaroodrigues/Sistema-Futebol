@@ -14,7 +14,23 @@ public class Atletas {
     String[] contratos = new String[30];
     String[] timeAnterior = new String[30];
     int atual = 0;
-    
+        
+  
+    public void gerenciarAtletas(){
+        int subMenuAtleta = Integer.parseInt(JOptionPane.showInputDialog(null,
+                 " 1 - Cadastrar Atleta\n"
+                +" 2 - Listar\n"
+                +" 3 - Editar\n "
+                +" 4 - Buscar\n"));
+        switch (subMenuAtleta){
+            case 1: 
+                cadastrar();
+                break;
+
+                
+        }
+            
+    }      
 
     public void cadastrar() {
         nomes[atual] = JOptionPane.showInputDialog("Nome do Atleta");
@@ -30,4 +46,3 @@ public class Atletas {
     }
 
 }
-

@@ -9,7 +9,8 @@ import javax.swing.JOptionPane;
 
 public class SistemaFutebol {
     
-   
+    Atletas menuAtletas = new Atletas();
+    ComissaoTecnica menuComissaoTecnica = new ComissaoTecnica();
 
  
     public void apresentarMenu(){
@@ -21,7 +22,7 @@ public class SistemaFutebol {
                 +" 5 - Sair"));
        while(menu !=5){
            switch(menu){
-               case 1 :
+               case 1 :menuAtletas.gerenciarAtletas();
                    break;
                case 2 :
                    break;

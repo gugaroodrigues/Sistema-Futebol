@@ -28,14 +28,8 @@ public class ComissaoTecnica {
         JOptionPane.showMessageDialog(null, posicaoBuscada);
     }
     
-    public void buscarPeloNome(){
-        String buscaNome = JOptionPane.showInputDialog("Informe o nome parcial para busca");
-        String nomeBuscado = "";
-        for(int j)
-    }
     
-    public void cadastrarDesempenho(){
-        
-    }
+    
+    
     
 }

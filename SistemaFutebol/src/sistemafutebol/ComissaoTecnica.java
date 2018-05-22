@@ -17,7 +17,7 @@ public class ComissaoTecnica {
         JOptionPane.showMessageDialog(null, texto);
     }
     
-    public void buscarPelaPosicao(){
+    public static void buscarPelaPosicao(){
         String buscaPosicao = JOptionPane.showInputDialog("Informe a posicao do jogador");
         String posicaoBuscada = "";
         for(int j = 0; j < 30; j++){

@@ -184,9 +184,15 @@ public class ComissaoTecnica {
                                                         "\nFaltas sofridas: "
                     );
                 }else if(Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
-                    
-                }
-                                                    
+                    JOptionPane.showMessageDialog(null, "Jogador: " + 
+                                                        "\nGols sofridos: " + 
+                                                        "\nPênaltis defendidos: " +
+                                                        "\nPênaltis convertidos: " + 
+                                                        "\nDefesas difíceis: " +
+                                                        "\nNúmero de jogos: " 
+                                                        
+                    );                   
+                }                                                   
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Opção inválida!!");

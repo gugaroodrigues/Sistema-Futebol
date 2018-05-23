@@ -77,12 +77,16 @@ public class ComissaoTecnica {
     int[] numeroJogos = new int[Atletas.nomes.length];
     int[] passesJogador = new int[Atletas.nomes.length];
     int[] passesCertos = new int[Atletas.nomes.length];
+    int[] golsSofridos = new int[Atletas.nomes.length];
+    int[] penaltisDefendidos = new int[Atletas.nomes.length];
+    int[] penaltisConvertidos = new int[Atletas.nomes.length];
+    int[] defesasDificeis = new int[Atletas.nomes.length];
     double[] distanciaPercorrida = new double[Atletas.nomes.length];
     
     public void cadastrarDesempenhoIndividual(int contador){
         buscarPeloNome();
         
-        if(!=Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
+        if(!Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
         
             golsMarcados[contador] = Integer.parseInt(JOptionPane.showInputDialog("Informe o número de gols marcados pelo jogador: " + Atletas.nomes[contador])
             );
@@ -141,17 +145,52 @@ public class ComissaoTecnica {
                     JOptionPane.showInputDialog("Informe o número de pênaltis convertidos")
             );
             
-            //fazer a porcentagem de penaltis defendidos
+            numeroJogos[contador] = Integer.parseInt(
+                    JOptionPane.showInputDialog("Informe o número de jogos do jogador")
+            );
+            
+            //fazer a porcentagem de penaltis defendidos           
         }
-        
-        
-        
-        
-        
-        
+
         
         
         contador++;
         
-    }   
+    }
+    
+    public static void mostrarDesempenho(int contador){
+        int opcao = Integer.parseInt(
+                JOptionPane.showInputDialog("1 - Buscar por nome" + 
+                                             "\n2 - Buscar por posição")        
+        );
+        
+        switch(opcao){
+            case 1: 
+                buscarPeloNome();
+                break;
+            case 2:
+                buscarPelaPosicao();
+                if(!Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
+                    JOptionPane.showMessageDialog(null, "Jogador: " + 
+                                                        "\nGols marcados: " + 
+                                                        "\nDistância percorrida: " +
+                                                        "\nCartões amarelos: " + 
+                                                        "\nCartões vermelhos: " +
+                                                        "\nNúmero de jogos: " + 
+                                                        "\nAssistências: " + 
+                                                        "\nPasses: " + 
+                                                        "\nPasses certos em %: " + 
+                                                        "\nFaltas cometidas: " + 
+                                                        "\nFaltas sofridas: "
+                    );
+                }else if(Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
+                    
+                }
+                                                    
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Opção inválida!!");
+                
+        }        
+    }
 }

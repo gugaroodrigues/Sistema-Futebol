@@ -167,6 +167,29 @@ public class ComissaoTecnica {
         switch(opcao){
             case 1: 
                 buscarPeloNome();
+                if(!Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
+                    JOptionPane.showMessageDialog(null, "Jogador: " + 
+                                                        "\nGols marcados: " + 
+                                                        "\nDistância percorrida: " +
+                                                        "\nCartões amarelos: " + 
+                                                        "\nCartões vermelhos: " +
+                                                        "\nNúmero de jogos: " + 
+                                                        "\nAssistências: " + 
+                                                        "\nPasses: " + 
+                                                        "\nPasses certos em %: " + 
+                                                        "\nFaltas cometidas: " + 
+                                                        "\nFaltas sofridas: "
+                    );
+                }else if(Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
+                    JOptionPane.showMessageDialog(null, "Jogador: " + 
+                                                        "\nGols sofridos: " + 
+                                                        "\nPênaltis defendidos: " +
+                                                        "\nPênaltis convertidos: " + 
+                                                        "\nDefesas difíceis: " +
+                                                        "\nNúmero de jogos: " 
+                                                        
+                    );                   
+                }                                                   
                 break;
             case 2:
                 buscarPelaPosicao();

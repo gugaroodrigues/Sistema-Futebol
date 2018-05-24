@@ -37,7 +37,7 @@ public class ComissaoTecnica {
              
     }
     
-    public void listar(){
+    /*public void listar(){
         String jogador = "";
         for(int i = 0; i < Atletas.atual; i++){
             jogador += Atletas.nomes[i] + "\n";
@@ -45,7 +45,7 @@ public class ComissaoTecnica {
         
         JOptionPane.showMessageDialog(null, jogador);
         
-    }
+    }*/
     
     public static void buscar(){
         int menuBuscar = JOptionPane.showOptionDialog(null, "Selecione uma opção",

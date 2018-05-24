@@ -14,33 +14,35 @@ public class SistemaFutebol {
 
  
     public void apresentarMenu(){
-       int menu = Integer.parseInt(JOptionPane.showInputDialog(null,
-                 " 1 - Atletas\n"
-                +" 2 - Comissão t�cnica\n"
-                +" 3 - Escala��o\n "
-               +"4 - An�lise de Desempenho\n"
-                +" 5 - Sair"));
-       while(menu !=5){
+       int menu = JOptionPane.showOptionDialog(null, "Selecione uma opção",
+                "SISTEMA FUTEBOL",0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
+                 "Atletas",
+                "Comissão t�cnica",
+                "Escala��o",
+               "Estatísticas",
+                "SAIR"}, "SAIR");
+       while(menu !=4){
            switch(menu){
-               case 1 :menuAtletas.gerenciarAtletas();
+               case 0 :menuAtletas.gerenciarAtletas();
                    break;
-               case 2 :menuComissaoTecnica.gerenciarComissao();
+               case 1 :menuComissaoTecnica.gerenciarComissao();
+                   break;
+               case 2 :
                    break;
                case 3 :
                    break;
                case 4 :
                    break;
-               case 5 :
-                   break;
                default: JOptionPane.showMessageDialog(null,"Opção inválida");
            }
            
-            menu = Integer.parseInt(JOptionPane.showInputDialog(null,
-                 " 1 - Atletas\n"
-                +" 2 - Comissão técnica\n"
-                +" 3 - Escalação\n "
-                +" 4 - Análise de Desempenho\n"
-                +" 5 - Sair"));
+            menu = JOptionPane.showOptionDialog(null, "Selecione uma opção",
+                "SISTEMA FUTEBOL",0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
+                 "Atletas",
+                "Comissão t�cnica",
+                "Escala��o",
+               "Estatísticas",
+                "SAIR"}, "SAIR");
        }
     }
     

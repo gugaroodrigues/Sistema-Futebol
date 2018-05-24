@@ -74,10 +74,10 @@ public class ComissaoTecnica {
         JOptionPane.showMessageDialog(null, posicaoBuscada);
     }
     
-    public static void buscarPeloNome(){
+    public void buscarPeloNome(){
         String buscaPosicao = JOptionPane.showInputDialog("Informe o nome do jogador");
         String nomeBuscado = "";
-        for(int j = 0; j < Atletas.nomes.length; j++){
+        for(int j = 0; j < contador; j++){
             if(Atletas.posicoes[j].contains(buscaPosicao)){
                 nomeBuscado += Atletas.nomes[j] + "\n";
             }

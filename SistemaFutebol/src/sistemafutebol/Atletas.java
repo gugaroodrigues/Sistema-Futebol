@@ -35,6 +35,7 @@ public class Atletas {
 
                 break;
             case 3:
+                ComissaoTecnica.buscar();
                 break;
 
         }

@@ -12,7 +12,7 @@ public class ComissaoTecnica {
     public void gerenciarComissao(){
         int subMenuComissao = Integer.parseInt(
                 JOptionPane.showInputDialog("1 - Listar\n" + 
-                                            "2 - Busca por posição\n" +
+                                            "2 - Busca por posiï¿½ï¿½o\n" +
                                             "3 - Busca por nome\n" +
                                             "4 - Cadastro de desempenho individual\n")        
         );
@@ -30,7 +30,7 @@ public class ComissaoTecnica {
                 cadastrarDesempenhoIndividual(contador);
                 break;
             default: 
-                JOptionPane.showMessageDialog(null, "Opção Inválida!!");
+                JOptionPane.showMessageDialog(null, "Opï¿½ï¿½o Invï¿½lida!!");
                 
         }
         
@@ -86,67 +86,79 @@ public class ComissaoTecnica {
     public void cadastrarDesempenhoIndividual(int contador){
         buscarPeloNome();
         
-        if(!Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
+        Object[] nomesListados = new Object[contador];
         
-            golsMarcados[contador] = Integer.parseInt(JOptionPane.showInputDialog("Informe o número de gols marcados pelo jogador: " + Atletas.nomes[contador])
+        for(int i = 0; i < contador; i++){
+            nomesListados[contador] = Atletas.nomes[contador];
+        }
+        
+        contador = JOptionPane.showOptionDialog(null,
+                contador > 0 ? "Selecione o atleta"
+                        : "Nenhum atleta cadastrado",
+                "AtenÃ§Ã£o",
+                0, JOptionPane.QUESTION_MESSAGE, null, nomesListados, "");
+        
+        if(!nomesListados[contador].equalsIgnoreCase("goleiro")){
+        
+            golsMarcados[contador] = Integer.parseInt(JOptionPane.showInputDialog("Informe o nï¿½mero de gols marcados pelo jogador: " + Atletas.nomes[contador])
             );
 
             distanciaPercorrida[contador] = Double.parseDouble(
-                    JOptionPane.showInputDialog("Informe a distância percorrida por jogo.")
+                    JOptionPane.showInputDialog("Informe a distï¿½ncia percorrida por jogo.")
             );
 
             cartoesAmarelos[contador] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o número de cartões amarelos")
+                    JOptionPane.showInputDialog("Informe o nï¿½mero de cartï¿½es amarelos")
             );
 
             cartoesVermelhos[contador] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o número de cartões vermelhos")
+                    JOptionPane.showInputDialog("Informe o nï¿½mero de cartï¿½es vermelhos")
             );
 
             numeroJogos[contador] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o número de jogos do jogador")
+                    JOptionPane.showInputDialog("Informe o nï¿½mero de jogos do jogador")
             );
 
             assistencias[contador] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o número de assistências")
+                    JOptionPane.showInputDialog("Informe o nï¿½mero de assistï¿½ncias")
             );
 
             passesJogador[contador] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o número de passes do jogador")
+                    JOptionPane.showInputDialog("Informe o nï¿½mero de passes do jogador")
             );
 
             passesCertos[contador] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o número de passes certos do jogador")
+                    JOptionPane.showInputDialog("Informe o nï¿½mero de passes certos do jogador")
             );
             
-            //fazer porcentagem de passes certos em relação ao total de passes
+            //fazer porcentagem de passes certos em relaï¿½ï¿½o ao total de passes
             
             faltasCometidas[contador] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o número de faltas cometidas")
+                    JOptionPane.showInputDialog("Informe o nï¿½mero de faltas cometidas")
             );
 
             faltasSofridas[contador] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o número de faltas sofridas")
+                    JOptionPane.showInputDialog("Informe o nï¿½mero de faltas sofridas")
             );
         }else if(Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
             golsSofridos[contador] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o número de gols sofridos")
+                    JOptionPane.showInputDialog("Informe o nï¿½mero de gols sofridos")
             );
             
             defesasDificeis[contador] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o número de defesas difíceis")
+                    JOptionPane.showInputDialog("Informe o nï¿½mero de defesas difï¿½ceis")
             );
             
             penaltisDefendidos[contador] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o número de pênaltis defendidos")
+                    JOptionPane.showInputDialog("Informe o nï¿½mero de pï¿½naltis defendidos")
             );
             
             penaltisConvertidos[contador] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o número de pênaltis convertidos")
+                    JOptionPane.showInputDialog("Informe o nï¿½mero de pï¿½naltis convertidos")
             );
             
             numeroJogos[contador] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o número de jogos do jogador")
+                    JOptionPane.showInputDialog("Informe o nï¿½mero de jogos do jogador")
             );
             
             //fazer a porcentagem de penaltis defendidos           
@@ -161,7 +173,7 @@ public class ComissaoTecnica {
     public static void mostrarDesempenho(int contador){
         int opcao = Integer.parseInt(
                 JOptionPane.showInputDialog("1 - Buscar por nome" + 
-                                             "\n2 - Buscar por posição")        
+                                             "\n2 - Buscar por posiï¿½ï¿½o")        
         );
         
         switch(opcao){
@@ -170,11 +182,11 @@ public class ComissaoTecnica {
                 if(!Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
                     JOptionPane.showMessageDialog(null, "Jogador: " + 
                                                         "\nGols marcados: " + 
-                                                        "\nDistância percorrida: " +
-                                                        "\nCartões amarelos: " + 
-                                                        "\nCartões vermelhos: " +
-                                                        "\nNúmero de jogos: " + 
-                                                        "\nAssistências: " + 
+                                                        "\nDistï¿½ncia percorrida: " +
+                                                        "\nCartï¿½es amarelos: " + 
+                                                        "\nCartï¿½es vermelhos: " +
+                                                        "\nNï¿½mero de jogos: " + 
+                                                        "\nAssistï¿½ncias: " + 
                                                         "\nPasses: " + 
                                                         "\nPasses certos em %: " + 
                                                         "\nFaltas cometidas: " + 
@@ -183,10 +195,10 @@ public class ComissaoTecnica {
                 }else if(Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
                     JOptionPane.showMessageDialog(null, "Jogador: " + 
                                                         "\nGols sofridos: " + 
-                                                        "\nPênaltis defendidos: " +
-                                                        "\nPênaltis convertidos: " + 
-                                                        "\nDefesas difíceis: " +
-                                                        "\nNúmero de jogos: " 
+                                                        "\nPï¿½naltis defendidos: " +
+                                                        "\nPï¿½naltis convertidos: " + 
+                                                        "\nDefesas difï¿½ceis: " +
+                                                        "\nNï¿½mero de jogos: " 
                                                         
                     );                   
                 }                                                   
@@ -196,11 +208,11 @@ public class ComissaoTecnica {
                 if(!Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
                     JOptionPane.showMessageDialog(null, "Jogador: " + 
                                                         "\nGols marcados: " + 
-                                                        "\nDistância percorrida: " +
-                                                        "\nCartões amarelos: " + 
-                                                        "\nCartões vermelhos: " +
-                                                        "\nNúmero de jogos: " + 
-                                                        "\nAssistências: " + 
+                                                        "\nDistï¿½ncia percorrida: " +
+                                                        "\nCartï¿½es amarelos: " + 
+                                                        "\nCartï¿½es vermelhos: " +
+                                                        "\nNï¿½mero de jogos: " + 
+                                                        "\nAssistï¿½ncias: " + 
                                                         "\nPasses: " + 
                                                         "\nPasses certos em %: " + 
                                                         "\nFaltas cometidas: " + 
@@ -209,16 +221,16 @@ public class ComissaoTecnica {
                 }else if(Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
                     JOptionPane.showMessageDialog(null, "Jogador: " + 
                                                         "\nGols sofridos: " + 
-                                                        "\nPênaltis defendidos: " +
-                                                        "\nPênaltis convertidos: " + 
-                                                        "\nDefesas difíceis: " +
-                                                        "\nNúmero de jogos: " 
+                                                        "\nPï¿½naltis defendidos: " +
+                                                        "\nPï¿½naltis convertidos: " + 
+                                                        "\nDefesas difï¿½ceis: " +
+                                                        "\nNï¿½mero de jogos: " 
                                                         
                     );                   
                 }                                                   
                 break;
             default:
-                JOptionPane.showMessageDialog(null, "Opção inválida!!");
+                JOptionPane.showMessageDialog(null, "Opï¿½ï¿½o invï¿½lida!!");
                 
         }        
     }

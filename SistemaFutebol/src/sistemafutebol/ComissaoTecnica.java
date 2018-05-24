@@ -102,7 +102,7 @@ public class ComissaoTecnica {
     double[] distanciaPercorrida = new double[Atletas.nomes.length];
     
     public void cadastrarDesempenhoIndividual(int contador){
-        buscarPeloNome();
+        buscarPeloNome(contador);
         
         Object[] nomesListados = new Object[contador];
         

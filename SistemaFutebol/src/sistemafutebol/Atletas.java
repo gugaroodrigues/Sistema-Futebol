@@ -14,7 +14,7 @@ public class Atletas {
     String[] contratos = new String[nomes.length];
     String[] timeAnterior = new String[nomes.length];
     int[] camisa = new int[nomes.length];
-    int atual = 0;
+     static int atual = 0;
 
     public void gerenciarAtletas() {
         int subMenuAtleta = JOptionPane.showOptionDialog(null, "Selecione uma opção",

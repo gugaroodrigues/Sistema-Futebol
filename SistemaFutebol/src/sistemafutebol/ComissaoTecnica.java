@@ -46,6 +46,23 @@ public class ComissaoTecnica {
         JOptionPane.showMessageDialog(null, jogador);
     }
     
+    public static void buscar(){
+        int menuBuscar = JOptionPane.showOptionDialog(null, "Selecione uma opção",
+                "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
+                    "Buscar por posição",
+                    "Buscar por nome"}, "");
+        
+        switch(menuBuscar){
+            case 0:
+                buscarPelaPosicao();
+                break;
+            case 1:
+                buscarPeloNome();
+                break;
+        }
+    }
+    
+    
     public static void buscarPelaPosicao(){
         String buscaPosicao = JOptionPane.showInputDialog("Informe a posicao do jogador");
         String posicaoBuscada = "";

@@ -28,7 +28,7 @@ public class Atletas {
                 cadastrar(atual);
                 break;
             case 1:
-                ComissaoTecnica.listar();
+               ComissaoTecnica.listar(atual);
                 break;
             case 2:
                 editar(atual);

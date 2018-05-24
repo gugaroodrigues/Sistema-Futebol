@@ -25,13 +25,13 @@ public class Atletas {
                     "Buscar"}, "");
         switch (subMenuAtleta) {
             case 0:
-                cadastrar(atual);
+                cadastrar();
                 break;
             case 1:
-               ComissaoTecnica.listar(atual);
+               
                 break;
             case 2:
-                editar(atual);
+                editar();
 
                 break;
             case 3:
@@ -42,50 +42,55 @@ public class Atletas {
 
     }
 
-    public void cadastrar(int posicao) {
-        nomes[posicao] = JOptionPane.showInputDialog("Nome do Atleta");
-        idades[posicao] = Integer.parseInt(JOptionPane.showInputDialog("Idade:"));
-        pesos[posicao] = Double.parseDouble(JOptionPane.showInputDialog("Peso:"));
-        alturas[posicao] = Double.parseDouble(JOptionPane.showInputDialog("Altura: "));
-        posicoes[posicao] = JOptionPane.showInputDialog("Posição do Atleta");
-        situacoes[posicao] = JOptionPane.showInputDialog("Situação do atleta com o club");
-        contratos[posicao] = JOptionPane.showInputDialog("Tipo de contrato");
-        timeAnterior[posicao] = JOptionPane.showInputDialog("Time anterior");
+    public void cadastrar() {
+        solicitarInformacao(atual);
 
         atual++;
     }
 
-    public void apresentarInformacao() {
+    public void apresentarInformacao(int posicao) {
 
         JOptionPane.showMessageDialog(null, "Nome Atleta: "
-                + nomes[atual]
-                + "\nIdade: " + idades[atual]
-                + "\nPeso: " + pesos[atual]
-                + "\nAltura: " + alturas[atual]
-                + "\nPosição do Atleta " + posicoes[atual]
-                + "\nSituação do atleta com o club" + situacoes[atual]
-                + " \nTipo de contrato " + contratos[atual]
-                + "\nTime anterior " + timeAnterior[atual], "SISTEMA FUTEBOL",
+                + nomes[posicao]
+                + "\nIdade: " + idades[posicao]
+                + "\nPeso: " + pesos[posicao]
+                + "\nAltura: " + alturas[posicao]
+                + "\nPosição do Atleta " + posicoes[posicao]
+                + "\nSituação do atleta com o club" + situacoes[posicao]
+                + " \nTipo de contrato " + contratos[posicao]
+                + "\nTime anterior " + timeAnterior[posicao], "SISTEMA FUTEBOL",
                 JOptionPane.INFORMATION_MESSAGE);
 
     }
 
-    public void editar(int posicao) {
+    public void editar() {
 
         Object[] nomesAtletas = new Object[atual];
         for (int i = 0; i < atual; i++) {
             nomesAtletas[i] = nomes[i];
         }
-        int auxiliar = 0;
+
         String edicao = JOptionPane.showInputDialog(null,
                 "Selecione um atleta para editar", "SISTEMA FUTEBOL",
                 JOptionPane.QUESTION_MESSAGE, null, nomesAtletas,
                 "").toString();
-        if (auxiliar < nomesAtletas.length) {
-            cadastrar(auxiliar);
-            auxiliar++;
-
+        for (int i = 0; i < atual; i++) {
+            if (nomesAtletas[i].equals(edicao)) {
+                solicitarInformacao(i);
+            }
         }
+    }
+
+    public void solicitarInformacao(int posicao) {
+        nomes[posicao] = JOptionPane.showInputDialog("Nome do Atleta", nomes[posicao]);
+        idades[posicao] = Integer.parseInt(JOptionPane.showInputDialog("Idade:", idades[posicao]));
+        pesos[posicao] = Double.parseDouble(JOptionPane.showInputDialog("Peso:",pesos[posicao]));
+        alturas[posicao] = Double.parseDouble(JOptionPane.showInputDialog("Altura: ", alturas[posicao]));
+        posicoes[posicao] = JOptionPane.showInputDialog("Posição do Atleta", posicoes[posicao]);
+        situacoes[posicao] = JOptionPane.showInputDialog("Situação do atleta com o club", situacoes[posicao] );
+        contratos[posicao] = JOptionPane.showInputDialog("Tipo de contrato", contratos[posicao]);
+        timeAnterior[posicao] = JOptionPane.showInputDialog("Time anterior", timeAnterior[posicao] );
+
     }
 
 }

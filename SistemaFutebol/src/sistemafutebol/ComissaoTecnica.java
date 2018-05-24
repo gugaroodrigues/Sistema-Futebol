@@ -42,7 +42,6 @@ public class ComissaoTecnica {
         String jogador = "";
         for(int i = 0; i < posicao; i++){
             jogador += Atletas.nomes[i] + "\n";
-            
         }
         JOptionPane.showMessageDialog(null, jogador);
         
@@ -76,10 +75,10 @@ public class ComissaoTecnica {
         JOptionPane.showMessageDialog(null, posicaoBuscada);
     }
     
-    public void buscarPeloNome(){
+    public void buscarPeloNome(int posicao){
         String buscaPosicao = JOptionPane.showInputDialog("Informe o nome do jogador");
         String nomeBuscado = "";
-        for(int j = 0; j < Atletas.nomes.length; j++){
+        for(int j = 0; j < posicao; j++){
             if(Atletas.posicoes[j].contains(buscaPosicao)){
                 nomeBuscado += Atletas.nomes[j] + "\n";
             }

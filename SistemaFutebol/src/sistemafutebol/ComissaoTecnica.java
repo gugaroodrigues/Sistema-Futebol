@@ -98,8 +98,6 @@ public class ComissaoTecnica {
                 "Atenção",
                 0, JOptionPane.QUESTION_MESSAGE, null, nomesListados, "");
         
-        if(!nomesListados[contador].equalsIgnoreCase("goleiro")){
-        
             golsMarcados[contador] = Integer.parseInt(JOptionPane.showInputDialog("Informe o n�mero de gols marcados pelo jogador: " + Atletas.nomes[contador])
             );
 
@@ -140,7 +138,7 @@ public class ComissaoTecnica {
             faltasSofridas[contador] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de faltas sofridas")
             );
-        }else if(Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
+        
             golsSofridos[contador] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de gols sofridos")
             );
@@ -162,7 +160,7 @@ public class ComissaoTecnica {
             );
             
             //fazer a porcentagem de penaltis defendidos           
-        }
+        
 
         
         

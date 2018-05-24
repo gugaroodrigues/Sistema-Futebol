@@ -37,12 +37,12 @@ public class ComissaoTecnica {
              
     }
     
-    int contador = 0;
-    public static void listar(int posicao){
+    public void listar(){
         String jogador = "";
-        for(int i = 0; i < posicao; i++){
+        for(int i = 0; i < Atletas.atual; i++){
             jogador += Atletas.nomes[i] + "\n";
         }
+        
         JOptionPane.showMessageDialog(null, jogador);
         
     }

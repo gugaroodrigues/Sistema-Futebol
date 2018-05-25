@@ -7,34 +7,24 @@ import javax.swing.JOptionPane;
  *
  * @author Thiago Avancini
  */
-public class ComissaoTecnica {
+public class ComissaoTecnica{
     
     public void gerenciarComissao(){
-        int subMenuComissao = Integer.parseInt(
-                JOptionPane.showInputDialog("1 - Listar\n" + 
-                                            "2 - Cadastro de desempenho individual\n" +)        
-                                            "2 - Busca por posi��o\n" +
-                                            "3 - Busca por nome\n" +
-        );
+        int subMenuComissao = JOptionPane.showOptionDialog(null, "Selecione uma opção",
+                "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
+                    "Buscar",
+                    "Desempenho"
+                    }, "");
         switch(subMenuComissao){
+            case 0:
+                buscar();
+                break;
             case 1:
-                listar();
-                break;
-            case 2:
                 cadastrarDesempenhoIndividual();
-                break;
-            case 3:
-                buscarPeloNome();
-                break;
-            case 4:
-                
                 break;
             default: 
                 JOptionPane.showMessageDialog(null, "Op��o Inv�lida!!");
-                
-        }
-        
-             
+        }            
     }
     
     /*public void listar(){
@@ -101,7 +91,7 @@ public class ComissaoTecnica {
     int[] defesasDificeis = new int[Atletas.atual];
     double[] distanciaPercorrida = new double[Atletas.atual];
     
-    public void cadastrarDesempenhoIndividual(int posicao){
+    public void cadastrarDesempenhoIndividual(){
               
         Object[] nomesListados = new Object[Atletas.atual];
         
@@ -109,13 +99,13 @@ public class ComissaoTecnica {
             nomesListados[i] = Atletas.nomes[i] + "\n";
         }
         
-        posicao = Integer.parseInt(JOptionPane.showInputDialog(null,
+        int posicao = Integer.parseInt(JOptionPane.showInputDialog(null,
                 "Selecione um atleta", "SISTEMA FUTEBOL",
                 JOptionPane.QUESTION_MESSAGE, null, nomesListados,
                 "").toString()
         );
         
-            golsMarcados[posicao] = Integer.parseInt(JOptionPane.showInputDialog("Informe o n�mero de gols marcados pelo jogador: " + Atletas.nomes[contador])
+            golsMarcados[posicao] = Integer.parseInt(JOptionPane.showInputDialog("Informe o n�mero de gols marcados pelo jogador: " + Atletas.nomes[posicao])
             );
 
             distanciaPercorrida[posicao] = Double.parseDouble(
@@ -179,64 +169,19 @@ public class ComissaoTecnica {
             //fazer a porcentagem de penaltis defendidos           
     }
     
-    public static void mostrarDesempenho(int contador){
-        int opcao = Integer.parseInt(
-                JOptionPane.showInputDialog("1 - Buscar por nome" + 
-                                             "\n2 - Buscar por posi��o")        
-        );
+    public void mostrarDesempenho(int posicao){
+        
+        int opcao = JOptionPane.showOptionDialog(null, "Selecione uma opção",
+                "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
+                    "Buscar por posição",
+                    "Buscar por nome"}, "");
         
         switch(opcao){
             case 1: 
                 buscarPeloNome();
-                if(!Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
-                    JOptionPane.showMessageDialog(null, "Jogador: " + 
-                                                        "\nGols marcados: " + 
-                                                        "\nDist�ncia percorrida: " +
-                                                        "\nCart�es amarelos: " + 
-                                                        "\nCart�es vermelhos: " +
-                                                        "\nN�mero de jogos: " + 
-                                                        "\nAssist�ncias: " + 
-                                                        "\nPasses: " + 
-                                                        "\nPasses certos em %: " + 
-                                                        "\nFaltas cometidas: " + 
-                                                        "\nFaltas sofridas: "
-                    );
-                }else if(Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
-                    JOptionPane.showMessageDialog(null, "Jogador: " + 
-                                                        "\nGols sofridos: " + 
-                                                        "\nP�naltis defendidos: " +
-                                                        "\nP�naltis convertidos: " + 
-                                                        "\nDefesas dif�ceis: " +
-                                                        "\nN�mero de jogos: " 
-                                                        
-                    );                   
-                }                                                   
-                break;
+                break;                   
             case 2:
                 buscarPelaPosicao();
-                if(!Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
-                    JOptionPane.showMessageDialog(null, "Jogador: " + 
-                                                        "\nGols marcados: " + 
-                                                        "\nDist�ncia percorrida: " +
-                                                        "\nCart�es amarelos: " + 
-                                                        "\nCart�es vermelhos: " +
-                                                        "\nN�mero de jogos: " + 
-                                                        "\nAssist�ncias: " + 
-                                                        "\nPasses: " + 
-                                                        "\nPasses certos em %: " + 
-                                                        "\nFaltas cometidas: " + 
-                                                        "\nFaltas sofridas: "
-                    );
-                }else if(Atletas.posicoes[contador].equalsIgnoreCase("goleiro")){
-                    JOptionPane.showMessageDialog(null, "Jogador: " + 
-                                                        "\nGols sofridos: " + 
-                                                        "\nP�naltis defendidos: " +
-                                                        "\nP�naltis convertidos: " + 
-                                                        "\nDefesas dif�ceis: " +
-                                                        "\nN�mero de jogos: " 
-                                                        
-                    );                   
-                }                                                   
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Op��o inv�lida!!");

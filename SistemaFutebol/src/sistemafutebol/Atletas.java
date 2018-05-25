@@ -37,6 +37,9 @@ public class Atletas {
             case 3:
                 ComissaoTecnica.buscar();
                 break;
+            case 4:
+                
+                break;
 
         }
 
@@ -45,7 +48,7 @@ public class Atletas {
     public void listar() {
         String[] jogador = new String[Atletas.atual];
         for (int i = 0; i < Atletas.atual; i++) {
-            jogador[i] += Atletas.nomes[i] + "\n";
+            jogador[i] = Atletas.nomes[i] + "\n";
         }
         
         String jogadores = JOptionPane.showInputDialog(null,
@@ -58,15 +61,18 @@ public class Atletas {
                 "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE,null, 
                 new Object[]{
                     "Editar",
-                    "Estatísticas"}, "");
+                    "Estatísticas",
+                    "Informações"}, "");
         switch (menuListar) {
             case 0:
-                ComissaoTecnica.mostrarDesempenho();
-                break;
-            case 1:
                 editar();
                 break;
+            case 1:
+                
+                break;
             case 2:
+                menuInformacao();
+                break;
 
         }
 
@@ -77,6 +83,24 @@ public class Atletas {
 
         atual++;
     }
+    
+    public void menuInformacao(){
+       Object[] informacaoAtletas = new Object[atual];
+        for (int i = 0; i < atual; i++) {
+            informacaoAtletas[i] = nomes[i];
+        }
+
+        String apresentacao = JOptionPane.showInputDialog(null,
+                "Selecione um Atleta ", "SISTEMA FUTEBOL",
+                JOptionPane.QUESTION_MESSAGE, null, informacaoAtletas,
+                "").toString();
+        for (int i = 0; i < atual; i++) {
+            if (informacaoAtletas[i].equals(apresentacao)) {
+                apresentarInformacao(i);
+            }
+        }
+        
+    }
 
     public void apresentarInformacao(int posicao) {
 
@@ -85,10 +109,10 @@ public class Atletas {
                 + "\nIdade: " + idades[posicao]
                 + "\nPeso: " + pesos[posicao]
                 + "\nAltura: " + alturas[posicao]
-                + "\nPosição do Atleta " + posicoes[posicao]
-                + "\nSituação do atleta com o club" + situacoes[posicao]
-                + " \nTipo de contrato " + contratos[posicao]
-                + "\nTime anterior " + timeAnterior[posicao], "SISTEMA FUTEBOL",
+                + "\nPosição do Atleta: " + posicoes[posicao]
+                + "\nSituação do atleta com o club: " + situacoes[posicao]
+                + " \nTipo de contrato: " + contratos[posicao]
+                + "\nTime anterior: " + timeAnterior[posicao], "SISTEMA FUTEBOL",
                 JOptionPane.INFORMATION_MESSAGE);
 
     }

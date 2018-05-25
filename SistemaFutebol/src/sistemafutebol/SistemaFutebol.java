@@ -11,6 +11,7 @@ public class SistemaFutebol {
     
     Atletas menuAtletas = new Atletas();
     ComissaoTecnica menuComissaoTecnica = new ComissaoTecnica();
+    Escalacao menuEscalacao = new Escalacao();
 
  
     public void apresentarMenu(){
@@ -23,12 +24,15 @@ public class SistemaFutebol {
                 "SAIR"}, "SAIR");
        while(menu !=4){
            switch(menu){
-               case 0 :menuAtletas.gerenciarAtletas();
+               case 0 :
+                   menuAtletas.gerenciarAtletas();
                    break;
-               case 1 :menuComissaoTecnica.gerenciarComissao();
+               case 1 :
+                   menuComissaoTecnica.gerenciarComissao();
                    break;
                case 2 :
-                   break;
+                   menuEscalacao.gerenciarEscalacao();
+                 break;
                case 3 :
                    break;
                case 4 :

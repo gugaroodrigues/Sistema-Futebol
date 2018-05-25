@@ -35,7 +35,7 @@ public class Atletas {
 
                 break;
             case 3:
-                ComissaoTecnica.buscar();
+               buscarMenuAtletas();
                 break;
             case 4:
                 
@@ -46,9 +46,9 @@ public class Atletas {
     }
 
     public void listar() {
-        String[] jogador = new String[Atletas.atual];
-        for (int i = 0; i < Atletas.atual; i++) {
-            jogador[i] = Atletas.nomes[i] + "\n";
+        String[] jogador = new String[atual];
+        for (int i = 0; i < atual; i++) {
+            jogador[i] = nomes[i] + "\n";
         }
         
         String jogadores = JOptionPane.showInputDialog(null,
@@ -134,16 +134,55 @@ public class Atletas {
             }
         }
     }
+    
+        public void buscarMenuAtletas(){
+        int buscarAtletas = JOptionPane.showOptionDialog(null, "Selecione uma opção",
+                "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
+                    "Buscar por posição",
+                    "Buscar por nome"}, "");
+        
+        switch (buscarAtletas){
+            case 0:
+                buscarAtletasPelaPosicao();
+                break;
+            case 1:
+                buscarPeloNome();
+                break;
+        }
+    }
+    
+    
+    public void buscarAtletasPelaPosicao(){
+        String buscaAtletasPosicao = JOptionPane.showInputDialog("Informe a posicao do jogador").toUpperCase().trim();
+        String posicaoAtletasBuscada = "";
+        for(int i = 0; i <atual; i++){
+            if(posicoes[i].contains(buscaAtletasPosicao)){
+                posicaoAtletasBuscada +=nomes[i] + "\n";
+            }
+        }
+        JOptionPane.showMessageDialog(null, posicaoAtletasBuscada);
+    }
+    
+    public void buscarPeloNome(){
+        String buscaAtletaNome = JOptionPane.showInputDialog("Informe o nome do jogador").toUpperCase().trim();
+        String nomeAtletaBuscado = "";
+        for(int i = 0; i <atual; i++){
+            if(nomes[i].contains(buscaAtletaNome)){
+                nomeAtletaBuscado +=nomes[i] + "\n";
+            }
+        }
+        JOptionPane.showMessageDialog(null, nomeAtletaBuscado);
+    }
 
     public void solicitarInformacao(int posicao) {
-        nomes[posicao] = JOptionPane.showInputDialog("Nome do Atleta", nomes[posicao]);
+        nomes[posicao] = JOptionPane.showInputDialog("Nome do Atleta", nomes[posicao]).toUpperCase().trim();
         idades[posicao] = Integer.parseInt(JOptionPane.showInputDialog("Idade:", idades[posicao]));
         pesos[posicao] = Double.parseDouble(JOptionPane.showInputDialog("Peso:", pesos[posicao]));
         alturas[posicao] = Double.parseDouble(JOptionPane.showInputDialog("Altura: ", alturas[posicao]));
-        posicoes[posicao] = JOptionPane.showInputDialog("Posição do Atleta", posicoes[posicao]);
-        situacoes[posicao] = JOptionPane.showInputDialog("Situação do atleta com o club", situacoes[posicao]);
-        contratos[posicao] = JOptionPane.showInputDialog("Tipo de contrato", contratos[posicao]);
-        timeAnterior[posicao] = JOptionPane.showInputDialog("Time anterior", timeAnterior[posicao]);
+        posicoes[posicao] = JOptionPane.showInputDialog("Posição do Atleta", posicoes[posicao]).toUpperCase().trim();
+        situacoes[posicao] = JOptionPane.showInputDialog("Situação do atleta com o club", situacoes[posicao]).toUpperCase().trim();
+        contratos[posicao] = JOptionPane.showInputDialog("Tipo de contrato", contratos[posicao]).toUpperCase().trim();
+        timeAnterior[posicao] = JOptionPane.showInputDialog("Time anterior", timeAnterior[posicao]).toUpperCase().trim();
 
     }
 

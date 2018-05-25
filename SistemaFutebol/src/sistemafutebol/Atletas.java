@@ -35,10 +35,10 @@ public class Atletas {
 
                 break;
             case 3:
-               buscarMenuAtletas();
+                buscarMenuAtletas();
                 break;
             case 4:
-                
+
                 break;
 
         }
@@ -50,15 +50,14 @@ public class Atletas {
         for (int i = 0; i < atual; i++) {
             jogador[i] = nomes[i] + "\n";
         }
-        
+
         String jogadores = JOptionPane.showInputDialog(null,
                 "Selecione um atleta", "SISTEMA FUTEBOL",
                 JOptionPane.QUESTION_MESSAGE, null, jogador,
                 "").toString();
-        
 
         int menuListar = JOptionPane.showOptionDialog(null, "Selecione uma Opção",
-                "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE,null, 
+                "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null,
                 new Object[]{
                     "Editar",
                     "Informações"}, "");
@@ -79,9 +78,9 @@ public class Atletas {
 
         atual++;
     }
-    
-    public void menuInformacao(){
-       Object[] informacaoAtletas = new Object[atual];
+
+    public void menuInformacao() {
+        Object[] informacaoAtletas = new Object[atual];
         for (int i = 0; i < atual; i++) {
             informacaoAtletas[i] = nomes[i];
         }
@@ -95,7 +94,7 @@ public class Atletas {
                 apresentarInformacao(i);
             }
         }
-        
+
     }
 
     public void apresentarInformacao(int posicao) {
@@ -130,14 +129,14 @@ public class Atletas {
             }
         }
     }
-    
-        public void buscarMenuAtletas(){
+
+    public void buscarMenuAtletas() {
         int buscarAtletas = JOptionPane.showOptionDialog(null, "Selecione uma opção",
                 "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
                     "Buscar por posição",
                     "Buscar por nome"}, "");
-        
-        switch (buscarAtletas){
+
+        switch (buscarAtletas) {
             case 0:
                 buscarAtletasPelaPosicao();
                 break;
@@ -146,37 +145,36 @@ public class Atletas {
                 break;
         }
     }
-    
-    
-    public void buscarAtletasPelaPosicao(){
-        String buscaAtletasPosicao =  JOptionPane.showInputDialog(null, "Selecione o tipo da sua empresa", "SISTEMA FUTEBOL",
+
+    public void buscarAtletasPelaPosicao() {
+        String buscaAtletasPosicao = JOptionPane.showInputDialog(null, "Selecione o tipo da sua empresa", "SISTEMA FUTEBOL",
                 JOptionPane.QUESTION_MESSAGE, null, new Object[]{
-                    "GOLEIRO", 
-                    "ZAGUEIRO", 
-                    "LATERAL", 
+                    "GOLEIRO",
+                    "ZAGUEIRO",
+                    "LATERAL",
                     "MEIA",
                     "ATACANTE"},
-                    "").toString();
+                "").toString();
         String posicaoAtletasBuscada = "";
-        for(int i = 0; i <atual; i++){
-            if(posicoes[i].contains(buscaAtletasPosicao)){
-                posicaoAtletasBuscada +=nomes[i] + "\n";
+        for (int i = 0; i < atual; i++) {
+            if (posicoes[i].contains(buscaAtletasPosicao)) {
+                posicaoAtletasBuscada += nomes[i] + "\n";
             }
-            
+
         }
-        if (posicaoAtletasBuscada.equals("")){                
+        if (posicaoAtletasBuscada.equals("")) {
             JOptionPane.showMessageDialog(null, "Não há atletas cadastrados nesta posição");
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, posicaoAtletasBuscada);
         }
     }
-    
-    public void buscarPeloNome(){
+
+    public void buscarPeloNome() {
         String buscaAtletaNome = JOptionPane.showInputDialog("Informe o nome do jogador").toUpperCase().trim();
         String nomeAtletaBuscado = "";
-        for(int i = 0; i <atual; i++){
-            if(nomes[i].contains(buscaAtletaNome)){
-                nomeAtletaBuscado +=nomes[i] + "\n";
+        for (int i = 0; i < atual; i++) {
+            if (nomes[i].contains(buscaAtletaNome)) {
+                nomeAtletaBuscado += nomes[i] + "\n";
             }
         }
         JOptionPane.showMessageDialog(null, nomeAtletaBuscado);
@@ -187,16 +185,31 @@ public class Atletas {
         idades[posicao] = Integer.parseInt(JOptionPane.showInputDialog("Idade:", idades[posicao]));
         pesos[posicao] = Double.parseDouble(JOptionPane.showInputDialog("Peso:", pesos[posicao]));
         alturas[posicao] = Double.parseDouble(JOptionPane.showInputDialog("Altura: ", alturas[posicao]));
-        posicoes[posicao] = JOptionPane.showInputDialog(null, "Selecione o tipo da sua empresa", "SISTEMA FUTEBOL",
+        posicoes[posicao] = JOptionPane.showInputDialog(null, "Selecione a posição ", "SISTEMA FUTEBOL",
                 JOptionPane.QUESTION_MESSAGE, null, new Object[]{
-                    "GOLEIRO", 
-                    "ZAGUEIRO", 
-                    "LATERAL", 
+                    "GOLEIRO",
+                    "ZAGUEIRO",
+                    "LATERAL",
                     "MEIA",
                     "ATACANTE"},
-                    "").toString();
-        situacoes[posicao] = JOptionPane.showInputDialog("Situação do atleta com o club", situacoes[posicao]).toUpperCase().trim();
-        contratos[posicao] = JOptionPane.showInputDialog("Tipo de contrato", contratos[posicao]).toUpperCase().trim();
+                "").toString();
+        situacoes[posicao] = JOptionPane.showInputDialog(null, "Situação do Jogador", "SISTEMA FUTEBOL",
+                JOptionPane.QUESTION_MESSAGE, null, new Object[]{
+                    "Cedido ao clube ",
+                    "Cedido pelo clube",
+                    "Contrato Vigente",
+                    "Em Contratação"
+                    },
+                "").toString();
+        contratos[posicao] = JOptionPane.showInputDialog(null, "Informe o tempo de contrato", "SISTEMA FUTEBOL",
+                JOptionPane.QUESTION_MESSAGE, null, new Object[]{
+                    "6 MESES",
+                    "1 ANO",
+                    "2 ANOS",
+                    "3 ANOS",
+                    "4 ANOS",
+                    "5 ANOS"},
+                "").toString();
         timeAnterior[posicao] = JOptionPane.showInputDialog("Time anterior", timeAnterior[posicao]).toUpperCase().trim();
 
     }

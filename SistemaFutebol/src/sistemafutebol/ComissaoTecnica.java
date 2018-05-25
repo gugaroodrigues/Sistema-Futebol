@@ -177,10 +177,10 @@ public class ComissaoTecnica{
                     "Buscar por nome"}, "");
         
         switch(opcao){
-            case 1: 
+            case 0: 
                 buscarPeloNome();
                 break;                   
-            case 2:
+            case 1:
                 buscarPelaPosicao();
                 break;
             default:

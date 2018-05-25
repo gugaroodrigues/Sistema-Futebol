@@ -47,7 +47,7 @@ public class ComissaoTecnica {
         
     }*/
     
-    public static void buscar(){
+    public void buscar(){
         int menuBuscar = JOptionPane.showOptionDialog(null, "Selecione uma opção",
                 "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
                     "Buscar por posição",
@@ -76,44 +76,44 @@ public class ComissaoTecnica {
     }
     
     public void buscarPeloNome(){
-        String buscaPosicao = JOptionPane.showInputDialog("Informe o nome do jogador").trim();
+        String buscaNome = JOptionPane.showInputDialog("Informe o nome do jogador").trim();
         String nomeBuscado = "";
-        for(int i = 0; i < Atletas.atual; j++){
-            if(Atletas.posicoes[i].contains(buscaPosicao)){
+        for(int i = 0; i < Atletas.atual; i++){
+            if(Atletas.posicoes[i].contains(buscaNome)){
                 nomeBuscado += Atletas.nomes[i] + "\n";
             }
         }
         JOptionPane.showMessageDialog(null, nomeBuscado);
     }
     
-    int[] golsMarcados = new int[Atletas.nomes.length];
-    int[] faltasCometidas = new int[Atletas.nomes.length];
-    int[] faltasSofridas = new int[Atletas.nomes.length];
-    int[] assistencias = new int[Atletas.nomes.length];
-    int[] cartoesAmarelos = new int[Atletas.nomes.length];
-    int[] cartoesVermelhos = new int[Atletas.nomes.length];
-    int[] numeroJogos = new int[Atletas.nomes.length];
-    int[] passesJogador = new int[Atletas.nomes.length];
-    int[] passesCertos = new int[Atletas.nomes.length];
-    int[] golsSofridos = new int[Atletas.nomes.length];
-    int[] penaltisDefendidos = new int[Atletas.nomes.length];
-    int[] penaltisConvertidos = new int[Atletas.nomes.length];
-    int[] defesasDificeis = new int[Atletas.nomes.length];
-    double[] distanciaPercorrida = new double[Atletas.nomes.length];
+    int[] golsMarcados = new int[Atletas.atual];
+    int[] faltasCometidas = new int[Atletas.atual];
+    int[] faltasSofridas = new int[Atletas.atual];
+    int[] assistencias = new int[Atletas.atual];
+    int[] cartoesAmarelos = new int[Atletas.atual];
+    int[] cartoesVermelhos = new int[Atletas.atual];
+    int[] numeroJogos = new int[Atletas.atual];
+    int[] passesJogador = new int[Atletas.atual];
+    int[] passesCertos = new int[Atletas.atual];
+    int[] golsSofridos = new int[Atletas.atual];
+    int[] penaltisDefendidos = new int[Atletas.atual];
+    int[] penaltisConvertidos = new int[Atletas.atual];
+    int[] defesasDificeis = new int[Atletas.atual];
+    double[] distanciaPercorrida = new double[Atletas.atual];
     
     public void cadastrarDesempenhoIndividual(int posicao){
-        buscarPeloNome();
-        
+              
         Object[] nomesListados = new Object[Atletas.atual];
         
         for(int i = 0; i < Atletas.atual; i++){
-            nomesListados[i] = Atletas.nomes[i];
+            nomesListados[i] = Atletas.nomes[i] + "\n";
         }
         
-        posicao = JOptionPane.showInputDialog(null,
+        posicao = Integer.parseInt(JOptionPane.showInputDialog(null,
                 "Selecione um atleta", "SISTEMA FUTEBOL",
                 JOptionPane.QUESTION_MESSAGE, null, nomesListados,
-                "").toString();
+                "").toString()
+        );
         
             golsMarcados[posicao] = Integer.parseInt(JOptionPane.showInputDialog("Informe o n�mero de gols marcados pelo jogador: " + Atletas.nomes[contador])
             );

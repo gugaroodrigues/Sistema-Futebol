@@ -47,7 +47,7 @@ public class ComissaoTecnica {
         
     }*/
     
-    public void buscar(){
+    public static void buscar(){
         int menuBuscar = JOptionPane.showOptionDialog(null, "Selecione uma opção",
                 "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
                     "Buscar por posição",
@@ -64,7 +64,7 @@ public class ComissaoTecnica {
     }
     
     
-    public static void buscarPelaPosicao(){
+    public void buscarPelaPosicao(){
         String buscaPosicao = JOptionPane.showInputDialog("Informe a posicao do jogador");
         String posicaoBuscada = "";
         for(int i = 0; i < Atletas.atual; i++){
@@ -110,11 +110,10 @@ public class ComissaoTecnica {
             nomesListados[i] = Atletas.nomes[i];
         }
         
-        posicao = JOptionPane.showOptionDialog(null,
-                posicao > 0 ? "Selecione o atleta"
-                        : "Nenhum atleta cadastrado",
-                "Atenção",
-                0, JOptionPane.QUESTION_MESSAGE, null, nomesListados, "");
+        posicao = JOptionPane.showInputDialog(null,
+                "Selecione um atleta", "SISTEMA FUTEBOL",
+                JOptionPane.QUESTION_MESSAGE, null, nomesListados,
+                "").toString();
         
             golsMarcados[posicao] = Integer.parseInt(JOptionPane.showInputDialog("Informe o n�mero de gols marcados pelo jogador: " + Atletas.nomes[contador])
             );

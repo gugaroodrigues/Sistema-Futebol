@@ -61,16 +61,12 @@ public class Atletas {
                 "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE,null, 
                 new Object[]{
                     "Editar",
-                    "Estatísticas",
                     "Informações"}, "");
         switch (menuListar) {
             case 0:
                 editar();
                 break;
             case 1:
-                
-                break;
-            case 2:
                 menuInformacao();
                 break;
 
@@ -153,14 +149,26 @@ public class Atletas {
     
     
     public void buscarAtletasPelaPosicao(){
-        String buscaAtletasPosicao = JOptionPane.showInputDialog("Informe a posicao do jogador").toUpperCase().trim();
+        String buscaAtletasPosicao =  JOptionPane.showInputDialog(null, "Selecione o tipo da sua empresa", "SISTEMA FUTEBOL",
+                JOptionPane.QUESTION_MESSAGE, null, new Object[]{
+                    "GOLEIRO", 
+                    "ZAGUEIRO", 
+                    "LATERAL", 
+                    "MEIA",
+                    "ATACANTE"},
+                    "").toString();
         String posicaoAtletasBuscada = "";
         for(int i = 0; i <atual; i++){
             if(posicoes[i].contains(buscaAtletasPosicao)){
                 posicaoAtletasBuscada +=nomes[i] + "\n";
             }
+            
         }
-        JOptionPane.showMessageDialog(null, posicaoAtletasBuscada);
+        if (posicaoAtletasBuscada.equals("")){                
+            JOptionPane.showMessageDialog(null, "Não há atletas cadastrados nesta posição");
+        }else{
+            JOptionPane.showMessageDialog(null, posicaoAtletasBuscada);
+        }
     }
     
     public void buscarPeloNome(){
@@ -179,7 +187,14 @@ public class Atletas {
         idades[posicao] = Integer.parseInt(JOptionPane.showInputDialog("Idade:", idades[posicao]));
         pesos[posicao] = Double.parseDouble(JOptionPane.showInputDialog("Peso:", pesos[posicao]));
         alturas[posicao] = Double.parseDouble(JOptionPane.showInputDialog("Altura: ", alturas[posicao]));
-        posicoes[posicao] = JOptionPane.showInputDialog("Posição do Atleta", posicoes[posicao]).toUpperCase().trim();
+        posicoes[posicao] = JOptionPane.showInputDialog(null, "Selecione o tipo da sua empresa", "SISTEMA FUTEBOL",
+                JOptionPane.QUESTION_MESSAGE, null, new Object[]{
+                    "GOLEIRO", 
+                    "ZAGUEIRO", 
+                    "LATERAL", 
+                    "MEIA",
+                    "ATACANTE"},
+                    "").toString();
         situacoes[posicao] = JOptionPane.showInputDialog("Situação do atleta com o club", situacoes[posicao]).toUpperCase().trim();
         contratos[posicao] = JOptionPane.showInputDialog("Tipo de contrato", contratos[posicao]).toUpperCase().trim();
         timeAnterior[posicao] = JOptionPane.showInputDialog("Time anterior", timeAnterior[posicao]).toUpperCase().trim();

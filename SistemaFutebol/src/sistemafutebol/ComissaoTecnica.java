@@ -12,22 +12,22 @@ public class ComissaoTecnica {
     public void gerenciarComissao(){
         int subMenuComissao = Integer.parseInt(
                 JOptionPane.showInputDialog("1 - Listar\n" + 
+                                            "2 - Cadastro de desempenho individual\n" +)        
                                             "2 - Busca por posi��o\n" +
                                             "3 - Busca por nome\n" +
-                                            "4 - Cadastro de desempenho individual\n")        
         );
         switch(subMenuComissao){
             case 1:
                 listar();
                 break;
             case 2:
-                buscarPelaPosicao();
+                cadastrarDesempenhoIndividual();
                 break;
             case 3:
                 buscarPeloNome();
                 break;
             case 4:
-                cadastrarDesempenhoIndividual(contador);
+                
                 break;
             default: 
                 JOptionPane.showMessageDialog(null, "Op��o Inv�lida!!");
@@ -47,7 +47,7 @@ public class ComissaoTecnica {
         
     }*/
     
-    public static void buscar(){
+    public void buscar(){
         int menuBuscar = JOptionPane.showOptionDialog(null, "Selecione uma opção",
                 "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
                     "Buscar por posição",
@@ -67,20 +67,20 @@ public class ComissaoTecnica {
     public static void buscarPelaPosicao(){
         String buscaPosicao = JOptionPane.showInputDialog("Informe a posicao do jogador");
         String posicaoBuscada = "";
-        for(int j = 0; j < Atletas.nomes.length; j++){
-            if(Atletas.posicoes[j].contains(buscaPosicao)){
-                posicaoBuscada += Atletas.nomes[j] + "\n";
+        for(int i = 0; i < Atletas.atual; i++){
+            if(Atletas.posicoes[i].contains(buscaPosicao)){
+                posicaoBuscada += Atletas.nomes[i] + "\n";
             }
         }
         JOptionPane.showMessageDialog(null, posicaoBuscada);
     }
     
     public void buscarPeloNome(){
-        String buscaPosicao = JOptionPane.showInputDialog("Informe o nome do jogador");
+        String buscaPosicao = JOptionPane.showInputDialog("Informe o nome do jogador").trim();
         String nomeBuscado = "";
-        for(int j = 0; j < contador; j++){
-            if(Atletas.posicoes[j].contains(buscaPosicao)){
-                nomeBuscado += Atletas.nomes[j] + "\n";
+        for(int i = 0; i < Atletas.atual; j++){
+            if(Atletas.posicoes[i].contains(buscaPosicao)){
+                nomeBuscado += Atletas.nomes[i] + "\n";
             }
         }
         JOptionPane.showMessageDialog(null, nomeBuscado);
@@ -101,89 +101,83 @@ public class ComissaoTecnica {
     int[] defesasDificeis = new int[Atletas.nomes.length];
     double[] distanciaPercorrida = new double[Atletas.nomes.length];
     
-    public void cadastrarDesempenhoIndividual(int contador){
-        buscarPeloNome(contador);
+    public void cadastrarDesempenhoIndividual(int posicao){
+        buscarPeloNome();
         
-        Object[] nomesListados = new Object[contador];
+        Object[] nomesListados = new Object[Atletas.atual];
         
-        for(int i = 0; i < contador; i++){
-            nomesListados[contador] = Atletas.nomes[contador];
+        for(int i = 0; i < Atletas.atual; i++){
+            nomesListados[i] = Atletas.nomes[i];
         }
         
-        contador = JOptionPane.showOptionDialog(null,
-                contador > 0 ? "Selecione o atleta"
+        posicao = JOptionPane.showOptionDialog(null,
+                posicao > 0 ? "Selecione o atleta"
                         : "Nenhum atleta cadastrado",
                 "Atenção",
                 0, JOptionPane.QUESTION_MESSAGE, null, nomesListados, "");
         
-            golsMarcados[contador] = Integer.parseInt(JOptionPane.showInputDialog("Informe o n�mero de gols marcados pelo jogador: " + Atletas.nomes[contador])
+            golsMarcados[posicao] = Integer.parseInt(JOptionPane.showInputDialog("Informe o n�mero de gols marcados pelo jogador: " + Atletas.nomes[contador])
             );
 
-            distanciaPercorrida[contador] = Double.parseDouble(
+            distanciaPercorrida[posicao] = Double.parseDouble(
                     JOptionPane.showInputDialog("Informe a dist�ncia percorrida por jogo.")
             );
 
-            cartoesAmarelos[contador] = Integer.parseInt(
+            cartoesAmarelos[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de cart�es amarelos")
             );
 
-            cartoesVermelhos[contador] = Integer.parseInt(
+            cartoesVermelhos[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de cart�es vermelhos")
             );
 
-            numeroJogos[contador] = Integer.parseInt(
+            numeroJogos[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de jogos do jogador")
             );
 
-            assistencias[contador] = Integer.parseInt(
+            assistencias[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de assist�ncias")
             );
 
-            passesJogador[contador] = Integer.parseInt(
+            passesJogador[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de passes do jogador")
             );
 
-            passesCertos[contador] = Integer.parseInt(
+            passesCertos[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de passes certos do jogador")
             );
             
             //fazer porcentagem de passes certos em rela��o ao total de passes
             
-            faltasCometidas[contador] = Integer.parseInt(
+            faltasCometidas[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de faltas cometidas")
             );
 
-            faltasSofridas[contador] = Integer.parseInt(
+            faltasSofridas[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de faltas sofridas")
             );
         
-            golsSofridos[contador] = Integer.parseInt(
+            golsSofridos[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de gols sofridos")
             );
             
-            defesasDificeis[contador] = Integer.parseInt(
+            defesasDificeis[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de defesas dif�ceis")
             );
             
-            penaltisDefendidos[contador] = Integer.parseInt(
+            penaltisDefendidos[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de p�naltis defendidos")
             );
             
-            penaltisConvertidos[contador] = Integer.parseInt(
+            penaltisConvertidos[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de p�naltis convertidos")
             );
             
-            numeroJogos[contador] = Integer.parseInt(
+            numeroJogos[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de jogos do jogador")
             );
             
             //fazer a porcentagem de penaltis defendidos           
-        
-
-        
-        
-        contador++;
-        
     }
     
     public static void mostrarDesempenho(int contador){

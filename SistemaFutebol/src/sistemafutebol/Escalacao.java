@@ -93,9 +93,9 @@ public class Escalacao {
             datas += novaData[i] + "\n";
             adversario[i] = JOptionPane.showInputDialog(null, "Informe o adversário no jogo").toUpperCase().trim();
             adversarios += adversario[i] + "\n";
-            mandantes += "\n";
-        }
-        
-        JOptionPane.showMessageDialog(null, datas + ": " + mandantes + " x " + adversarios);
+                       
+            JOptionPane.showMessageDialog(null, "Data: " + datas
+                    + "\n" + mandantes + " x " + adversarios);
+        }       
     }
 }

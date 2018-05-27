@@ -118,57 +118,30 @@ public class ComissaoTecnica{
         
             switch(escolher){
                 case 0:
-                    
+                    cadastrarDesempenhoGoleiro();
+                    break;
+                case 1:
+                    cadastrarDesempenhoLinha();
             }
+    }
+        
+    public void cadastrarDesempenhoGoleiro(){
+        
+        Object[] goleiros = new Object[Atletas.atual];
+        
+        for(int i = 0; i < Atletas.atual; i++){
+            if(Atletas.posicoes[i].equals("GOLEIRO")){
+                goleiros[i] = Atletas.nomes[i];
+            }else{
+                JOptionPane.showMessageDialog(null, "Não há goleiros cadastrados!");
+            }
+        }
         
         int posicao = Integer.parseInt(JOptionPane.showInputDialog(null,
                 "Selecione um atleta", "SISTEMA FUTEBOL",
-                JOptionPane.QUESTION_MESSAGE, null, nomesListados,
+                JOptionPane.QUESTION_MESSAGE, null, goleiros,
                 "").toString()
         );
-        
-        
-        
-            golsMarcados[posicao] = Integer.parseInt(JOptionPane.showInputDialog("Informe o n�mero de gols marcados pelo jogador: " + Atletas.nomes[posicao])
-            );
-
-            distanciaPercorrida[posicao] = Double.parseDouble(
-                    JOptionPane.showInputDialog("Informe a dist�ncia percorrida por jogo.")
-            );
-
-            cartoesAmarelos[posicao] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o n�mero de cart�es amarelos")
-            );
-
-            cartoesVermelhos[posicao] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o n�mero de cart�es vermelhos")
-            );
-
-            numeroJogos[posicao] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o n�mero de jogos do jogador")
-            );
-
-            assistencias[posicao] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o n�mero de assist�ncias")
-            );
-
-            passesJogador[posicao] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o n�mero de passes do jogador")
-            );
-
-            passesCertos[posicao] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o n�mero de passes certos do jogador")
-            );
-            
-            //fazer porcentagem de passes certos em rela��o ao total de passes
-            
-            faltasCometidas[posicao] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o n�mero de faltas cometidas")
-            );
-
-            faltasSofridas[posicao] = Integer.parseInt(
-                    JOptionPane.showInputDialog("Informe o n�mero de faltas sofridas")
-            );
         
             golsSofridos[posicao] = Integer.parseInt(
                     JOptionPane.showInputDialog("Informe o n�mero de gols sofridos")
@@ -190,10 +163,73 @@ public class ComissaoTecnica{
                     JOptionPane.showInputDialog("Informe o n�mero de jogos do jogador")
             );
             
+    }
+
+    public void cadastrarDesempenhoLinha(){
+        
+        Object[] linhas = new Object[Atletas.atual];
+        
+        for(int i = 0; i < Atletas.atual; i++){
+            if(!Atletas.posicoes[i].equals("GOLEIRO")){
+                linhas[i] = Atletas.nomes[i];
+            }else{
+                JOptionPane.showMessageDialog(null, "Não há jogadores de linha cadastrados!");
+            }
+        
+        int posicao = Integer.parseInt(JOptionPane.showInputDialog(null,
+            "Selecione um atleta", "SISTEMA FUTEBOL",
+            JOptionPane.QUESTION_MESSAGE, null, linhas,
+            "").toString()
+        );
+        
+        golsMarcados[posicao] = Integer.parseInt(JOptionPane.showInputDialog("Informe o n�mero de gols marcados pelo jogador: " + Atletas.nomes[posicao])
+        );
+
+        distanciaPercorrida[posicao] = Double.parseDouble(
+                JOptionPane.showInputDialog("Informe a dist�ncia percorrida por jogo.")
+        );
+
+        cartoesAmarelos[posicao] = Integer.parseInt(
+                JOptionPane.showInputDialog("Informe o n�mero de cart�es amarelos")
+        );
+
+        cartoesVermelhos[posicao] = Integer.parseInt(
+                JOptionPane.showInputDialog("Informe o n�mero de cart�es vermelhos")
+        );
+
+        numeroJogos[posicao] = Integer.parseInt(
+                JOptionPane.showInputDialog("Informe o n�mero de jogos do jogador")
+        );
+
+        assistencias[posicao] = Integer.parseInt(
+                JOptionPane.showInputDialog("Informe o n�mero de assist�ncias")
+        );
+
+        passesJogador[posicao] = Integer.parseInt(
+                JOptionPane.showInputDialog("Informe o n�mero de passes do jogador")
+        );
+
+        passesCertos[posicao] = Integer.parseInt(
+                JOptionPane.showInputDialog("Informe o n�mero de passes certos do jogador")
+        );
+
+        //fazer porcentagem de passes certos em rela��o ao total de passes
+
+        faltasCometidas[posicao] = Integer.parseInt(
+                JOptionPane.showInputDialog("Informe o n�mero de faltas cometidas")
+        );
+
+        faltasSofridas[posicao] = Integer.parseInt(
+                JOptionPane.showInputDialog("Informe o n�mero de faltas sofridas")
+        );
+    }
+            
+        
+            
             //fazer a porcentagem de penaltis defendidos           
     }
     
-    public void mostrarDesempenho(int posicao){
+    /*public void mostrarDesempenho(int posicao){
         
         int opcao = JOptionPane.showOptionDialog(null, "Selecione uma opção",
                 "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
@@ -228,5 +264,5 @@ public class ComissaoTecnica{
                 
             }
         }
-    }
+    }*/
 }

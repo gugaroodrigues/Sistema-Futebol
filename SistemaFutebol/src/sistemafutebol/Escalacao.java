@@ -59,7 +59,43 @@ public class Escalacao {
         JOptionPane.showMessageDialog(null, "Titulares: \n" + iniciais);
         
         JOptionPane.showMessageDialog(null, "Reservas: \n" + reservas);
+    }
+    
+    public void proximosJogos(){
+        int subMenuNovosJogos = JOptionPane.showOptionDialog(null, "Selecione uma opção",
+                "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
+                    "Cadastrar novos jogos"
+                    }, "");
         
+        switch(subMenuNovosJogos){
+            case 0:
+                cadastrarNovoJogo();
+                break;
+             default:
+                JOptionPane.showMessageDialog(null, "Opção Inválida!!");
+        }
+    }
+    
+    public void cadastrarNovoJogo(){
+        int opcao = Integer.parseInt(
+                JOptionPane.showInputDialog(null,
+                        "Informe o número de jogos")
+        );
         
+        String[] novaData = new String[opcao];
+        String datas = "";
+        String[] adversario = new String[opcao];
+        String adversarios = "";
+        String mandantes = "Time";
+        
+        for(int i = 0; i < opcao; i++){
+            novaData[i] = JOptionPane.showInputDialog(null, "Informe a data do jogo");
+            datas += novaData[i] + "\n";
+            adversario[i] = JOptionPane.showInputDialog(null, "Informe o adversário no jogo").toUpperCase().trim();
+            adversarios += adversario[i] + "\n";
+            mandantes += "\n";
+        }
+        
+        JOptionPane.showMessageDialog(null, datas + ": " + mandantes + " x " + adversarios);
     }
 }

@@ -175,6 +175,7 @@ public class ComissaoTecnica{
             }else{
                 JOptionPane.showMessageDialog(null, "Não há jogadores de linha cadastrados!");
             }
+        }
         
         int posicao = Integer.parseInt(JOptionPane.showInputDialog(null,
             "Selecione um atleta", "SISTEMA FUTEBOL",
@@ -222,47 +223,5 @@ public class ComissaoTecnica{
         faltasSofridas[posicao] = Integer.parseInt(
                 JOptionPane.showInputDialog("Informe o n�mero de faltas sofridas")
         );
-    }
-            
-        
-            
-            //fazer a porcentagem de penaltis defendidos           
-    }
-    
-    /*public void mostrarDesempenho(int posicao){
-        
-        int opcao = JOptionPane.showOptionDialog(null, "Selecione uma opção",
-                "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
-                    "Buscar por posição",
-                    "Buscar por nome"}, "");
-        
-        switch(opcao){
-            case 0: 
-                buscarPeloNome();
-                break;                   
-            case 1:
-                buscarPelaPosicao();
-                break;
-            default:
-                JOptionPane.showMessageDialog(null, "Opção inválida!!");
-                
-        }
-
-        Object[] nomesAtletas = new Object[Atletas.atual];
-        
-        for (int i = 0; i < Atletas.atual; i++){
-            nomesAtletas[i] = Atletas.nomes[i];
-        }
-        
-        String mostrar = JOptionPane.showInputDialog(null,
-                "Selecione um atleta", "SISTEMA FUTEBOL",
-                JOptionPane.QUESTION_MESSAGE, null, nomesAtletas,
-                "").toString();
-        
-        for(int j = 0; j < Atletas.atual; j++){
-            if(nomesAtletas[j].equals(mostrar)){
-                
-            }
-        }
-    }*/
+    }   
 }

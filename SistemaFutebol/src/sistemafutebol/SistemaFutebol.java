@@ -19,7 +19,7 @@ public class SistemaFutebol {
                 "SISTEMA FUTEBOL",0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
                  "Atletas",
                 "Comissão técnica",
-                "Escalaçãoo",
+                "Escalação",
                "Estatísticas",
                 "SAIR"}, "SAIR");
        while(menu !=4){

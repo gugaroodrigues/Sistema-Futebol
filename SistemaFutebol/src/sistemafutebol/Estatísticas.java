@@ -6,4 +6,7 @@ package sistemafutebol;
  */
 public class Estatísticas {
     
+    public void gerenciarEstatistica(){
+        
+    }
 }

@@ -12,6 +12,7 @@ public class SistemaFutebol {
     Atletas menuAtletas = new Atletas();
     ComissaoTecnica menuComissaoTecnica = new ComissaoTecnica();
     Escalacao menuEscalacao = new Escalacao();
+    Estatísticas menuEstatistica = new Estatísticas();
 
  
     public void apresentarMenu(){
@@ -34,10 +35,12 @@ public class SistemaFutebol {
                    menuEscalacao.gerenciarEscalacao();
                  break;
                case 3 :
+                   menuEstatistica.gerenciarEstatistica();
                    break;
                case 4 :
                    break;
-               default: JOptionPane.showMessageDialog(null,"Opção inválida");
+               default: 
+                   JOptionPane.showMessageDialog(null,"Opção inválida");
            }
            
             menu = JOptionPane.showOptionDialog(null, "Selecione uma opção",

@@ -147,7 +147,7 @@ public class Atletas {
     }
 
     public void buscarAtletasPelaPosicao() {
-        String buscaAtletasPosicao = JOptionPane.showInputDialog(null, "Selecione o tipo da sua empresa", "SISTEMA FUTEBOL",
+        String buscaAtletasPosicao = JOptionPane.showInputDialog(null, "Selecione a posição do atleta", "SISTEMA FUTEBOL",
                 JOptionPane.QUESTION_MESSAGE, null, new Object[]{
                     "GOLEIRO",
                     "ZAGUEIRO",

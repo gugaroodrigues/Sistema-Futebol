@@ -55,11 +55,23 @@ public class ComissaoTecnica{
     
     
     public void buscarPelaPosicao(){
-        String buscaPosicao = JOptionPane.showInputDialog("Informe a posicao do jogador");
+        String buscaPosicao = JOptionPane.showInputDialog(null, "Selecione a posição do atleta", "SISTEMA FUTEBOL",
+                JOptionPane.QUESTION_MESSAGE, null, new Object[]{
+                    "GOLEIRO",
+                    "ZAGUEIRO",
+                    "LATERAL",
+                    "MEIA",
+                    "ATACANTE"},
+                "").toString();
+        
+        
         String posicaoBuscada = "";
         for(int i = 0; i < Atletas.atual; i++){
             if(Atletas.posicoes[i].contains(buscaPosicao)){
                 posicaoBuscada += Atletas.nomes[i] + "\n";
+            }else{
+                JOptionPane.showMessageDialog(null, "Não há atletas cadastrados nessa posição");
+                
             }
         }
         JOptionPane.showMessageDialog(null, posicaoBuscada);
@@ -99,11 +111,23 @@ public class ComissaoTecnica{
             nomesListados[i] = Atletas.nomes[i] + "\n";
         }
         
+        int escolher = JOptionPane.showOptionDialog(null, "Selecione uma opção",
+                "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
+                    "GOLEIRO",
+                    "JOGADOR DE LINHA"}, "");
+        
+            switch(escolher){
+                case 0:
+                    
+            }
+        
         int posicao = Integer.parseInt(JOptionPane.showInputDialog(null,
                 "Selecione um atleta", "SISTEMA FUTEBOL",
                 JOptionPane.QUESTION_MESSAGE, null, nomesListados,
                 "").toString()
         );
+        
+        
         
             golsMarcados[posicao] = Integer.parseInt(JOptionPane.showInputDialog("Informe o n�mero de gols marcados pelo jogador: " + Atletas.nomes[posicao])
             );
@@ -184,8 +208,25 @@ public class ComissaoTecnica{
                 buscarPelaPosicao();
                 break;
             default:
-                JOptionPane.showMessageDialog(null, "Op��o inv�lida!!");
+                JOptionPane.showMessageDialog(null, "Opção inválida!!");
                 
-        }        
+        }
+
+        Object[] nomesAtletas = new Object[Atletas.atual];
+        
+        for (int i = 0; i < Atletas.atual; i++){
+            nomesAtletas[i] = Atletas.nomes[i];
+        }
+        
+        String mostrar = JOptionPane.showInputDialog(null,
+                "Selecione um atleta", "SISTEMA FUTEBOL",
+                JOptionPane.QUESTION_MESSAGE, null, nomesAtletas,
+                "").toString();
+        
+        for(int j = 0; j < Atletas.atual; j++){
+            if(nomesAtletas[j].equals(mostrar)){
+                
+            }
+        }
     }
 }

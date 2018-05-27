@@ -18,8 +18,8 @@ public class SistemaFutebol {
        int menu = JOptionPane.showOptionDialog(null, "Selecione uma opção",
                 "SISTEMA FUTEBOL",0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
                  "Atletas",
-                "Comissão t�cnica",
-                "Escala��o",
+                "Comissão técnica",
+                "Escalaçãoo",
                "Estatísticas",
                 "SAIR"}, "SAIR");
        while(menu !=4){

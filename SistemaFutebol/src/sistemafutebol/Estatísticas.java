@@ -13,7 +13,8 @@ public class Estatísticas {
                 "SISTEMA FUTEBOL", 0, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{
                     "Cadastrar Goleiro",
                     "Cadastrar Jogador",
-                    "Mostrar"}, "");
+                    "Estatísticas do Time",
+                    "Estatísticas individuais"}, "");
         
         switch(opcao){
             case 0: 
